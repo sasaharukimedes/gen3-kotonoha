@@ -3,13 +3,15 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  root 'home#index'
+  root 'homes#top'
   get 'announcement', to: 'homes#announcement'
 
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
   get 'log_out', to: 'sessions#destroy', as: 'log_out'
   resources :sessions, only: %i[create destroy]
+
+  get "/signup", to:"users#new"
 
   resources :posts, shallow: true do
     resources :replies
