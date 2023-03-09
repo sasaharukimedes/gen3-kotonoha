@@ -1,11 +1,16 @@
 class SessionsController < ApplicationController
-  skip_before_action :check_logged_in, only: :create
+  skip_before_action :check_logged_in, except: :destroy
+
+  def new
+  end
 
   def create
     if (user = User.find_or_create_from_auth_hash(auth_hash))
       log_in user
+      redirect_to root_path
+    else
+      redirect_to new_session_path
     end
-    redirect_to root_path
   end
 
   def destroy
