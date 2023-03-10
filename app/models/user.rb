@@ -2,17 +2,16 @@ class User < ApplicationRecord
   class << self
     def find_or_create_from_auth_hash(auth_hash)
       user_params = user_params_from_auth_hash(auth_hash)
-      find_or_create_by(email: user_params[:email]) do |user|
-        user.update(user_params)
+      find_or_initialize_by(email: user_params[:email]) do |user|
+        user.update(user_params, received_at: Time.now, status: 'needs_birthday')
       end
     end
-
-    attribute :received_at, :datetime, default: -> { Time.now }
+  end
 
     has_many :posts, dependent: :destroy
 
     validates :name, presence: true
-    validates :birthday, presence: true
+    validates :birthday, presence: true, if: -> { status: 'registered' }
     validates :received_at, presence: true
 
 
@@ -25,11 +24,8 @@ class User < ApplicationRecord
         def user_params_from_auth_hash(auth_hash)
           {
             name: auth_hash.info.name,
-            email: auth_hash.info.email,
-            birthday: auth_hash.info.birthday,
-            received_at: auth_hash.info.received_at
+            email: auth_hash.info.email
           }
         end
-  end
 
 end

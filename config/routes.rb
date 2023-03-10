@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'log_out', to: 'sessions#destroy', as: 'log_out'
   resources :sessions, only: %i[new create destroy]
 
-  get "/signup", to:"users#new"
+  resource :profile
 
   resources :posts, shallow: true do
     resources :replies
