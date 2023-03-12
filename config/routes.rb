@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   get 'auth/failure', to: redirect('/')
   get 'log_out', to: 'sessions#destroy', as: 'log_out'
   resources :sessions, only: %i[new create destroy]
+  resources :users, only: %i[new create edit destroy]
 
-  get "/signup", to:"users#new"
 
   resources :posts, shallow: true do
     resources :replies

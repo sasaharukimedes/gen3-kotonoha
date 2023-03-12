@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_action :check_logged_in, except: :destroy
+  #skip_before_action :check_logged_in, except: :destroy
 
   def new
   end
