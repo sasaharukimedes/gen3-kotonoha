@@ -3,36 +3,32 @@
     <div class="text-3xl font-bold hover:text-point transition-all duration-300">
       <%= link_to "コトノハ", root_path %>
     </div>
-    <div>
-      <button class="md:hidden">
-        <i class="fa-solid fa-bars"></i>
-      </button>
+    <div class="hidden md:flex justify-end items-center font-semibold">
+      <% if logged_in? %>
+        <li class="list-none hover:text-point transition-all duration-300 block px-8 py-2 ">
+          <%= link_to "手紙を書く", new_post_path, data: {"turbolinks" => false} %>
+        </li>
+        <li class="list-none hover:text-point transition-all duration-300 block px-8 py-2">
+          <%= link_to "手紙を読む", notifications_path %>
+        </li>
+        <li class="list-none hover:text-point transition-all duration-300 block px-8 py-2">
+          <%= link_to "ログアウト", log_out_path %>
+        </li>
+      <% else %>
+        <a href="#about" class="list-none hover:text-point transition-all duration-300 block px-8 py-2">
+          どんなアプリ？
+        </a>
+        <a  href="#play" class="list-none hover:text-point transition-all duration-300 block px-8 py-2">
+          遊び方
+        </a>
+        <li class="list-none hover:text-point transition-all duration-300 block px-8 py-2">
+          <%= button_to "Googleでログイン", "/auth/google_oauth2", method: :post, data: { turbo: false } %>
+        </li>
+      <% end %>
     </div>
-  </div>
-  <div class="mx-auto sm:mt-8 md:flex justify-end items-center font-semibold">
-    <% if logged_in? %>
-      <li class="list-none hover:text-point transition-all duration-300 block px-8 py-2 ">
-        <%= link_to "手紙を書く", new_post_path, data: {"turbolinks" => false} %>
-      </li>
-      <li class="list-none hover:text-point transition-all duration-300 block px-8 py-2">
-        <%= link_to "手紙を読む", notifications_path %>
-      </li>
-      <li class="list-none hover:text-point transition-all duration-300 block px-8 py-2">
-        <%= link_to "ログアウト", log_out_path %>
-      </li>
-    <% else %>
-      <a href="#about" class="list-none hover:text-point transition-all duration-300 block px-8 py-2">
-        どんなアプリ？
-      </a>
-      <a  href="#play" class="list-none hover:text-point transition-all duration-300 block px-8 py-2">
-        遊び方
-      </a>
-      <%# <li class="list-none hover:text-point transition-all duration-300 block px-8 py-2">
-        <%= link_to "新規登録", new_user_path %>
-      <li class="list-none hover:text-point transition-all duration-300 block px-8 py-2">
-        <%= button_to "Googleでログイン", "/auth/google_oauth2", method: :post, data: { turbo: false } %>
-      </li>
-    <% end %>
+    <div class="md:hidden">
+      <i class="fa-solid fa-bars"></i>
+    </div>
   </div>
 </header>
 
