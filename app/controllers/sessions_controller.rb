@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if (user = User.find_or_create_from_auth_hash(auth_hash))
+    if (user = User.find_or_create_from_auth_hash(auth_hash, status))
       log_in user
       redirect_to edit_profile_path
     else

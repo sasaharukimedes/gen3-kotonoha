@@ -15,14 +15,9 @@
       <%= f.date_field :birthday %>
     </div>
 
-    <div class="text-body font-semibold py-2 px-4 rounded mb-8">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <div class="mt-5 bg-transparent hover:bg-point text-body font-semibold hover:text-white py-2 px-4 border border-gray-400 hover:border-transparent rounded">
+      <%= f.submit "新規アカウント登録" %>
     </div>
-
-    <button type="submit" class="bg-transparent hover:bg-point text-body font-semibold hover:text-white py-2 px-4 border border-gray-400 hover:border-transparent rounded">
-      新規アカウント登録
-    </button>
   <% end %>
   </form>
 
