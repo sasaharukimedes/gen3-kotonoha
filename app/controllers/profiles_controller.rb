@@ -12,6 +12,7 @@ class ProfilesController < ApplicationController
   def update
     @profile = current_user
     if @profile.update(update_params.merge(status: 'registered'))
+      @profile.save!
       redirect_to root_path
       #のちのちposts_path
     else
