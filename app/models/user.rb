@@ -3,8 +3,8 @@ class User < ApplicationRecord
     def find_or_create_from_auth_hash(auth_hash , status)
       user_params = user_params_from_auth_hash(auth_hash)
       find_or_initialize_by(email: user_params[:email]) do |user|
-        user.update(user_params)
         user.status = 'needs_birthday'
+        user.update(user_params)
       end
     end
 
@@ -19,6 +19,7 @@ class User < ApplicationRecord
 
     attribute :received_at, :datetime, default: -> { Time.now }
     has_many :posts, dependent: :destroy
+    has_one :profile, dependent: :destroy
 
     validates :name, presence: true
     validates :birthday, presence: true, if: -> { status == 'registered' }

@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
   def new
+    @profile = Profile.new
   end
 
   def create
@@ -22,6 +23,6 @@ class ProfilesController < ApplicationController
 
       private
       def update_params
-        params.require(:user).permit(:name, :birthday, :password, :password_confirmation)
+        params.permit(:name, :birthday, :password, :password_confirmation)
       end
 end
