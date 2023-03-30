@@ -2,10 +2,10 @@
 <div class="container mx-auto px-8 md:px-14 lg:px-24 w-full">
   <div class="text-3xl md:text-5xl font-bold my-10 ">新規登録</div>
 
-  <form class="mx-auto md:max-w-md">
-    <%= form_with model: @profile do |f| %>
-
-    <div class=" text-body font-semibold py-2 px-4 rounded">
+  <%= turbo_frame_tag @profile do %>
+  <%= form_with url: profile_path, model: @profile, method: 'PATCH', class: 'mx-auto md:max-w-md' do |f| %>
+    <p><%= @profile.errors.full_messages %></p>
+    <div class="text-body font-semibold py-2 px-4 rounded">
       <%= f.label :お名前 %><br />
       <%= f.text_field :name, placeholder: "ニックネームでもいいよ"%>
     </div>
@@ -19,5 +19,5 @@
       <%= f.submit "新規アカウント登録" %>
     </button>
   <% end %>
-  </form>
+  <% end %>
 </div>

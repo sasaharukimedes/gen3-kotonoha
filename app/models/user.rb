@@ -4,7 +4,7 @@ class User < ApplicationRecord
       user_params = user_params_from_auth_hash(auth_hash)
       find_or_initialize_by(email: user_params[:email]) do |user|
         user.status = 'needs_birthday'
-        user.update(user_params)
+        user.update!(user_params)
       end
     end
 
@@ -21,7 +21,7 @@ class User < ApplicationRecord
     has_many :posts, dependent: :destroy
     has_one :profile, dependent: :destroy
 
-    validates :name, presence: true
+    validates :name, presence: true, if: -> { status == 'registered' }
     validates :birthday, presence: true, if: -> { status == 'registered' }
     validates :received_at, presence: true
 
