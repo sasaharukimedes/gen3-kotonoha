@@ -15,9 +15,13 @@ module.exports = {
         body: "#c29090",
         point: "#775b5b",
       },
-    },
-    fontFamily: {
-      kiwi: ["Kiwi Maru", "serif"],
+      fontFamily: {
+        kiwi: ["Kiwi Maru", "serif"],
+      },
+      backgroundImage: {
+        ocean1: "url('/assets/ocean1.jpg')",
+        ocean2: "url('/assets/ocean2.jpg')",
+      },
     },
   },
   plugins: [

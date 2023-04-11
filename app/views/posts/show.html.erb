@@ -1,0 +1,29 @@
+<% provide(:title, "ReadLetter") %>
+
+<div class="post posts-show">
+<h1 class="md:py-10 font-medium text-5xl md:text-6xl lg:text-8xl">
+      もらったお手紙</h1>
+  <div class="posts-show-item">
+    <p>
+      <span><%= @post.dear %></span>
+      <span><%= @post.content %></span>
+      <span><%=  @post.from %><br>
+      <%= @post.created_at.strftime("%Y年%m月%d日 %H:%M") %></span>
+      <% if @post.reply == nil %>
+        <span><%= link_to "返事を書く", new_post_reply_path(@post.id), class: "link", data: {"turbolinks" => false} %></span>
+      <% end  %>
+    </p>
+  </div>
+  <% unless @post.reply == nil %>
+    <h1 class="md:py-10 font-medium text-5xl md:text-6xl lg:text-8xl">
+      あなたの書いたお返事</h1>
+    <div class="posts-show-item">
+      <p>
+        <span><%= @post.reply.dear %></span>
+        <span><%= @post.reply.content %></span>
+        <span><%=  @post.reply.from %><br>
+        <%= @post.reply.created_at.strftime("%Y年%m月%d日 %H:%M") %></span>
+      </p>
+    </div>
+  <% end %>
+</div>

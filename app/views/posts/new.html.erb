@@ -1,0 +1,33 @@
+<% provide(:title, "WriteLetter") %>
+
+<div class="container flex justify-center mx-auto items-center w-full h-full">
+  <div class="post posts-new">
+    <h1 class="md:py-10 font-medium flex justify-center text-4xl md:text-5xl">
+      手紙を書く</h1>
+    <%=  form_with scope: :post, url: posts_path, model: @post, local: true do |form| %>
+
+    <%= render 'layouts/error_messages', model: form.object %>
+
+      <div class="font-medium bg-ocean2 form-body  bg-center bg-cover mt-2 text-3xl md:text-4xl lg:text-5xl w-screen flex justify-center items-center">
+        <div class="w-full form-body">
+          <li class="list-none px-8 py-2">
+            <%= form.label :宛名 %><br>
+            <%= form.text_field :dear , placeholder: "どこかの誰かへ"%><br>
+          </li>
+          <li class="list-none px-8 py-2">
+            <%= form.label :本文 %>
+            <P class="js-text-count", id="counter"></P><br>
+            <%= form.text_area :content , class: 'form-control  js-text', id: "input-text" %><br>
+          </li>
+          <li class="list-none px-8 py-2">
+            <%= form.label :差出人 %><br>
+            <%= form.text_field :from, placeholder: "悩める子羊より"%><br>
+          </li>
+          <li class="list-none hover:text-point transition-all duration-300 block px-8 py-2">
+            <%= form.submit value="投函する" %>
+          </li>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

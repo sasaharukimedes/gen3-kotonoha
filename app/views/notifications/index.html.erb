@@ -1,0 +1,23 @@
+<% provide(:title, "IndexLetters") %>
+
+<div class="notification notifications-index">
+
+  <h1 class="form-heading">手紙を読む</h1>
+  <div class="notifications-index-item">
+    <% @notifications.each do |notification| %>
+      <% case notification.action %>
+      <% when "post" %>
+        <% unless post.receiver_archives %>
+          <%= link_to(notification.post.dear, "/posts/#{notification.post.id}") %> <br>
+          <%= button_to "削除ボタン", archive_path(post), method: :put %>
+        <%end%>
+      <% when "reply" %>
+        <% unless reply.receiver_archives %>
+          <%= link_to(notification.reply.dear, "/replies/#{notification.reply.id}") %> <br>
+          <%= button_to "削除ボタン", archive_path(reply), method: :put %>
+        <% end %>
+      <% end %>
+    <% end %>
+    <%= link_to("開発者より", "announcement") %>
+  </div>
+</div>
