@@ -10,20 +10,26 @@
 
       <div class="font-medium bg-ocean2 form-body  bg-center bg-cover mt-2 text-3xl md:text-4xl lg:text-5xl w-screen flex justify-center items-center">
         <div class="w-full form-body">
-          <li class="list-none px-8 py-2">
+          <li class="list-none px-8 py-2 flex justify-center items-center">
             <%= form.label :宛名 %><br>
+          </li>
+          <li class="list-none px-8 py-2 flex justify-center items-center">
             <%= form.text_field :dear , placeholder: "#{@post.from}へ"%><br>
           </li>
-          <li class="list-none px-8 py-2">
+          <li class="list-none px-8 py-2 flex justify-center items-center">
             <%= form.label :本文 %>
             <P class="js-text-count", id="counter"></P><br>
+          </li>
+          <li class="list-none px-8 py-2 flex justify-center items-center">
             <%= form.text_area :content , class: 'form-control  js-text', id: "input-text", placeholder: "あなたの大切な人にかけるような言葉で書きましょう！" %><br>
           </li>
-          <li class="list-none px-8 py-2">
+          <li class="list-none px-8 py-2 flex justify-center items-center">
             <%= form.label :差出人 %><br>
+          </li>
+          <li class="list-none px-8 py-2 flex justify-center items-center">
             <%= form.text_field :from, placeholder: "#{current_user.name} より" %><br>
           </li>
-          <li class="list-none hover:text-point transition-all duration-300 block px-8 py-2">
+          <li class="flex justify-center items-center m-5 hover:bg-point text-body font-semibold hover:text-white py-2 px-8 border rounded">
             <%= form.submit value="投函する" %>
           </li>
         </div>

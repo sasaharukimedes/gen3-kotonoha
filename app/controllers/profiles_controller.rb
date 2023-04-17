@@ -19,7 +19,7 @@ class ProfilesController < ApplicationController
       redirect_to root_path
       #のちのちposts_path
     else
-      render :edit
+      redirect_to root_path
     end
   end
 
