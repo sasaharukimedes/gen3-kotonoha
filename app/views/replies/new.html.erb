@@ -17,8 +17,10 @@
             <%= form.text_field :dear , placeholder: "#{@post.from}へ"%><br>
           </li>
           <li class="list-none px-8 py-2 flex justify-center items-center">
-            <%= form.label :本文 %>
-            <P class="js-text-count", id="counter"></P><br>
+            <%= form.label :本文 %><br>
+          </li>
+          <li class="list-none px-8 py-2 flex justify-center items-center">
+            <P class="js-text-count", id="counter"></P>
           </li>
           <li class="list-none px-8 py-2 flex justify-center items-center">
             <%= form.text_area :content , class: 'form-control  js-text', id: "input-text", placeholder: "あなたの大切な人にかけるような言葉で書きましょう！" %><br>
