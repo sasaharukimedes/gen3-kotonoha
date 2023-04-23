@@ -1,0 +1,19 @@
+<% provide(:title, "MessageFromArchitect") %>
+
+<div id="MessageFromArchitect", class="container mt-8 px-8 flex justify-between mx-auto items-center md:px-14 lg:px-24 w-full">
+  <div class="post posts-show">
+    <div class="posts-show-item">
+      <p class="font-bold"><%= "#{current_user.name}さんへ" %></p>
+        <p>
+        <span class="font-semibold"><%= "ようこそ、コトノハへ！" %><br>
+        <%= "こんな感じで他の誰かから手紙が来ます。
+        その時は優しい言葉で返してあげてください。
+        そして、あなたが今感じている気持ちを手紙にして、書いてみてください。
+        きっと誰かがお返事をくれますよ。楽しんでくれるといいな！" %><br>
+        </span>
+        <p class="font-bold"><%= "開発者より" %></p>
+        <p class="font-semibold"><%= current_user.created_at.strftime("%Y年%m月%d日 %H:%M") %></p>
+      </p>
+    </div>
+  </div>
+</div>
