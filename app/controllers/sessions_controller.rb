@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if (user = User.find_or_create_from_auth_hash(auth_hash, status))
       log_in user
       #ユーザーの名前と誕生日がない場合のみeditに遷移
-      redirect_to user_needs_profile?(user) ? edit_profile_path : profile_path
+      redirect_to user_needs_profile?(user) ? edit_profile_path : root_path
     else
       redirect_to new_session_path
     end

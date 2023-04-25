@@ -10,7 +10,7 @@
       <span><%=  @post.from %><br>
       <%= @post.created_at.strftime("%Y年%m月%d日 %H:%M") %></span>
       <% if @post.reply == nil %>
-        <span><%= link_to "返事を書く", new_post_reply_path(@post.id), class: "link", data: {"turbolinks" => false} %></span>
+        <span><%= link_to "返事を書く", new_post_reply_path(@post.id), class: "link", data: {turbo: false} %></span>
       <% end  %>
     </p>
   </div>

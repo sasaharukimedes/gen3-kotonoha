@@ -6,7 +6,7 @@
     <div class="hidden md:flex justify-end items-center font-semibold">
       <% if logged_in? %>
         <li class="list-none hover:text-point transition-all duration-300 block px-8 py-2 ">
-          <%= link_to "手紙を書く", new_post_path, data: {"turbolinks" => false} %>
+          <%= link_to "手紙を書く", new_post_path, data: {turbo: false} %>
         </li>
         <li class="list-none hover:text-point transition-all duration-300 block px-8 py-2">
           <%= link_to "手紙を読む", notifications_path %>

@@ -11,9 +11,7 @@ class UsersController < ApplicationController
     #user.rbに書けば以下いらない？？
     #@user.received_at = Time.now
     if @user.save
-      @user.send_activation_email
-      flash[:info] = "Please check your email to activate your account."
-      redirect_to root_url, notice: "Please check your email to activate your account."
+      redirect_to root_url, notice: "コトノハへようこそ！"
     else
       render 'new'
     end
