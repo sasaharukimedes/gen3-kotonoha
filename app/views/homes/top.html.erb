@@ -13,6 +13,7 @@
     <img src="/assets/edward-howell-HXCVD8SYcQM-unsplash.jpg" alt="image" class="md:absolute md:right-0 bg-center bg-cover mt-12 md:mt-4 mx-auto -z-10">
   </div>
 </div>
+
 <div id="about", class="container mt-20 md:mt-96 px-8 flex justify-between mx-auto items-center md:px-14 lg:px-24">
   <section class="w-full">
     <h1 class="font-bold text-5xl md:text-6xl lg:text-8xl">コトノハって何？</h1>
@@ -23,6 +24,7 @@
     </p>
   </section>
 </div>
+
 <div id="play", class="container mt-20 md:mt-90 px-8 flex justify-between mx-auto items-center md:px-14 lg:px-24">
   <section class="w-full">
     <h1 class="font-bold text-5xl md:text-6xl lg:text-8xl">どうやって遊ぶの？</h1>
@@ -34,3 +36,28 @@
   </section>
 </div>
 
+<div id="contact", class="container mt-52 md:mt-90 px-8 flex justify-between mx-auto items-center md:px-14 lg:px-24">
+  <section class="w-full">
+    <h1 class="font-bold text-5xl md:text-6xl lg:text-8xl">お問い合わせ</h1>
+    <p class="my-3 font-bold text-2xl">アプリについてのご意見等は、こちらまでお願いします！</p>
+    <div class="w-full mt-16">
+      <div class="space-y-12">
+        <div>
+          <label class="block mb-6 text-xl font-bold">お名前</label>
+          <input type="text" class="w-full border px-4 py-4 ">
+        </div>
+        <div>
+          <label class="block mb-6 text-xl font-bold">メールアドレス</label>
+          <input type="email" class="w-full border px-4 py-4 ">
+        </div>
+        <div>
+          <label class="block mb-6 text-xl font-bold">お問い合わせ内容</label>
+          <input type="content" class="w-full border px-4 py-4 ">
+        </div>
+        <div class="hover:bg-point text-body font-bold hover:text-white py-3 px-8 rounded-lg transition-all duration-300">
+          <%= button_to "送信する", "#", method: :post, data: { turbo: false } %>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
