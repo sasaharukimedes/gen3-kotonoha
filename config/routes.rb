@@ -20,5 +20,6 @@ Rails.application.routes.draw do
   end
 
   resources :notifications, :only => [:index, :update]
+  resources :contacts, only: [:new, :create]
 
 end

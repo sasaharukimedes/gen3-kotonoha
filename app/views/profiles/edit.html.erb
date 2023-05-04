@@ -4,17 +4,21 @@
   <%= form_with url: profile_path, model: @profile, method: 'PATCH', class: 'mx-auto md:max-w-md' do |f| %>
     <%= render 'layouts/error_messages', model: f.object %>
 
-    <div class="text-body font-semibold py-2 px-4 rounded">
-      <%= f.label :お名前 %><br />
+    <div class="text-body font-semibold py-2 px-4 rounded flex mx-auto justify-center">
+      <%= f.label :お名前 %>
+    </div>
+    <div class="text-body font-semibold py-2 px-4 rounded flex mx-auto justify-center">
       <%= f.text_field :name, placeholder: "ニックネームでもいいよ"%>
     </div>
 
-    <div class="text-body font-semibold py-2 px-4 rounded">
-      <%= f.label :お誕生日 %><br />
+    <div class="text-body font-semibold py-2 px-4 rounded flex mx-auto justify-center">
+      <%= f.label :お誕生日 %>
+    </div>
+    <div class="text-body font-semibold py-2 px-4 rounded flex mx-auto justify-center">
       <%= f.date_field :birthday %>
     </div>
 
-    <button class="mt-5 bg-transparent hover:bg-point text-body font-semibold hover:text-white py-2 px-4 border border-gray-400 hover:border-transparent rounded">
+    <button class="mt-5 bg-transparent hover:bg-point text-body font-semibold hover:text-white py-2 px-4 border border-gray-400 hover:border-transparent rounded flex mx-auto justify-center">
       <%= f.submit "新規アカウント登録" %>
     </button>
   <% end %>

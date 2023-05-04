@@ -36,28 +36,12 @@
   </section>
 </div>
 
-<div id="contact", class="container mt-52 md:mt-90 px-8 flex justify-between mx-auto items-center md:px-14 lg:px-24">
+<div id="contact", class="container mt-20 md:mt-90 px-8 flex justify-between mx-auto items-center md:px-14 lg:px-24">
   <section class="w-full">
     <h1 class="font-bold text-5xl md:text-6xl lg:text-8xl">お問い合わせ</h1>
-    <p class="my-3 font-bold text-2xl">アプリについてのご意見等は、こちらまでお願いします！</p>
-    <div class="w-full mt-16">
-      <div class="space-y-12">
-        <div>
-          <label class="block mb-6 text-xl font-bold">お名前</label>
-          <input type="text" class="w-full border px-4 py-4 ">
-        </div>
-        <div>
-          <label class="block mb-6 text-xl font-bold">メールアドレス</label>
-          <input type="email" class="w-full border px-4 py-4 ">
-        </div>
-        <div>
-          <label class="block mb-6 text-xl font-bold">お問い合わせ内容</label>
-          <input type="content" class="w-full border px-4 py-4 ">
-        </div>
-        <div class="hover:bg-point text-body font-bold hover:text-white py-3 px-8 rounded-lg transition-all duration-300">
-          <%= button_to "送信する", "#", method: :post, data: { turbo: false } %>
-        </div>
-      </div>
-    </div>
+    <p class="my-3 font-bold text-2xl">アプリについての質問や意見はここからお願いします！</p>
+    <p class="hover:bg-point text-body font-bold hover:text-white py-3 px-8 rounded-lg transition-all duration-300 flex mx-auto justify-center">
+      <%= link_to "お問い合わせ", new_contact_path %>
+    </p>
   </section>
 </div>
