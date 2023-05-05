@@ -17,10 +17,14 @@
 <div id="about", class="container mt-20 md:mt-96 px-8 flex justify-between mx-auto items-center md:px-14 lg:px-24">
   <section class="w-full">
     <h1 class="font-bold text-5xl md:text-6xl lg:text-8xl">コトノハって何？</h1>
-    <p class="my-3 font-bold text-2xl">コトノハは、<br/>
+    <p class="mt-8 font-semibold text-2xl flex mx-auto">コトノハは、<br/>
     誰にも邪魔されず、<br/>
     安心して気持ちを吐き出せる、<br/>
-    プライベートSNSです。
+    プライベートSNSです。<br/>
+    気持ちを溜め込んで、<br/>鬱ぎ込む前に。<br/>
+    嬉しくて<br/>誰かに聞いてほしいときに。<br/>
+    思ったことを、<br/>自由に書いてください。<br/>
+    他の誰か一人にだけ、<br/>届きます。<br/>
     </p>
   </section>
 </div>
@@ -28,11 +32,30 @@
 <div id="play", class="container mt-20 md:mt-90 px-8 flex justify-between mx-auto items-center md:px-14 lg:px-24">
   <section class="w-full">
     <h1 class="font-bold text-5xl md:text-6xl lg:text-8xl">どうやって遊ぶの？</h1>
-    <p class="my-3 font-bold text-2xl">コトノハは、<br/>
-    誰にも邪魔されず、<br/>
-    安心して気持ちを吐き出せる、<br/>
-    プライベートSNSです。
+    <p class="mt-8 font-semibold text-2xl flex mx-auto">
+    1, まずはここから登録してみよう！
     </p>
+    <div class="flex justify-center items-center m-5 hover:bg-point text-header font-semibold hover:text-white py-2 px-8 rounded">
+      <%= button_to "Googleでログイン", "/auth/google_oauth2", method: :post, data: { turbo: false } %>
+    </div>
+    <p class="mt-8 font-semibold text-2xl flex mx-auto">
+    2, 登録できたら早速手紙を書いてみよう！<br/>(こんな感じで自由に書いてね！)
+    </p>
+    <div class="flex justify-center items-center mt-4">
+      <%= image_tag '2writeLetter.png', :size =>'320x480'%>
+    </div>
+    <div class="flex justify-center items-center m-5 hover:bg-point text-header font-semibold hover:text-white py-2 px-8 rounded">
+      <%= link_to "手紙を書く", new_post_path, data: {turbo: false} %>
+    </div>
+    <p class="mt-8 font-semibold text-2xl flex mx-auto">
+    3, 手紙が書けたら返事が来るのを待ってみよう！<br/>(ちなみに、僕からの手紙があなたに来ているよ！<br/>読んでみてね！)
+    </p>
+    <div class="flex justify-center items-center mt-4">
+      <%= image_tag 'readLetter.png', :size =>'320x480'%>
+    </div>
+    <div class="flex justify-center items-center m-5 hover:bg-point text-header font-semibold hover:text-white py-2 px-8 rounded">
+      <%= link_to "手紙を読む", notifications_path %>
+    </div>
   </section>
 </div>
 

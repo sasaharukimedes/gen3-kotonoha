@@ -21,6 +21,7 @@ module.exports = {
       backgroundImage: {
         ocean1: "url('/assets/ocean1.jpg')",
         ocean2: "url('/assets/ocean2.jpg')",
+        writeLetter: "url('/assets/2writeLetter.png')",
       },
     },
   },
