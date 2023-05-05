@@ -35,3 +35,15 @@ $(function () {
     $(".js-text-count").text("残り" + now_count + "文字");
   });
 });
+
+document.addEventListener("turbo:before-fetch-response", function (event) {
+  const json = JSON.parse(
+    event.detail.fetchResponse.header("X-Flash-Messages")
+  );
+
+  // メッセージを表示する
+  for (let key in json) {
+    // ↓ これがflashメッセージを出すfunction
+    flash_submit(key, decodeURI(json[key]));
+  }
+});

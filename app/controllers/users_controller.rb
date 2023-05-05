@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     #params[:user]実装は終わっていないことに注意!
     #マスアサインメント脆弱性
     #user.rbに書けば以下いらない？？
-    #@user.received_at = Time.now
+    @user.received_at = Time.now
     if @user.save
       redirect_to root_url, notice: "コトノハへようこそ！"
     else

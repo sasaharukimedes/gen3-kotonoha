@@ -15,8 +15,8 @@ class ProfilesController < ApplicationController
 
   def update
     @profile = current_user
-    if @profile.update(update_params.merge(status: 'registered'))
-      redirect_to root_path
+    if @profile.update(update_params.merge(status: 'registered',received_at: Time.now))
+      redirect_to root_url, notice: "コトノハへようこそ！"
       #のちのちposts_path
     else
       redirect_to root_path
@@ -25,6 +25,6 @@ class ProfilesController < ApplicationController
 
       private
       def update_params
-        params.require(:user).permit(:name, :birthday, :password, :password_confirmation)
+        params.require(:user).permit(:name, :birthday, :received_at ,:password, :password_confirmation)
       end
 end
