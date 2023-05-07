@@ -3,7 +3,7 @@ class RepliesController < ApplicationController
 
   def archive
     @reply = Reply.find(params[:id])
-    if reply.post.sender_id = current_user.id
+    if @reply.post.sender_id = current_user.id
       @reply.update(receiver_archives: true)
     else
       @reply.update(sender_archives: true)
@@ -27,7 +27,7 @@ class RepliesController < ApplicationController
     #@receiver = User.where(id:@reply.post.sender_id)
     #大久保さんに聞いたやつ
     #@receiver = User.find_by!(id:@reply.post.sender_id)
-    @receiver = @reply.post.user
+    @receiver = @reply.post.sender
     if @reply.save
       #通知メソッドの呼び出し
       @reply.create_notification_by(current_user)

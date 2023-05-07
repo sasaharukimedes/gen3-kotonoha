@@ -4,7 +4,7 @@
     <h1 class="font-bold text-5xl md:text-6xl lg:text-8xl">お問い合わせ</h1>
     <p class="my-3 font-bold text-2xl">アプリについてのご意見等は、こちらまでお願いします！</p>
     <div class="flex mx auto justify-center items-center mt-10">
-      <%= form_with model:@contact do |f| %>
+      <%= form_with model:@contact, method: :post do |f| %>
       <p class="block mb-6 text-xl font-bold">
         <%= f.label :name,"お名前" %>
       </p>

@@ -4,25 +4,39 @@
 <h1 class="md:py-10 font-medium text-5xl md:text-6xl lg:text-8xl">
       もらったお手紙</h1>
   <div class="posts-show-item">
-    <p>
-      <span><%= @post.dear %></span>
-      <span><%= @post.content %></span>
-      <span><%=  @post.from %><br>
-      <%= @post.created_at.strftime("%Y年%m月%d日 %H:%M") %></span>
-      <% if @post.reply == nil %>
-        <span><%= link_to "返事を書く", new_post_reply_path(@post.id), class: "link", data: {turbo: false} %></span>
-      <% end  %>
+    <p class="flex justify-start mx-auto items-center">
+      <%= @post.dear %>
     </p>
+    <p class="flex justify-center mx-auto items-center">
+      <%= @post.content %>
+    </p>
+    <p class="flex mx-auto justify-end items-center">
+      <%=  @post.from %>
+    </p>
+    <p class="flex mx-auto justify-end items-center">
+      <%= @post.created_at.strftime("%Y年%m月%d日 %H:%M") %>
+    </p>
+      <% if @post.reply == nil %>
+        <div class="flex justify-center hover:bg-point text-header font-bold hover:text-white py-3 px-8 rounded-lg transition-all duration-300 mx-auto">
+          <%= link_to "返事を書く", new_post_reply_path(@post.id), data: {turbo: false} %>
+        </div>
+      <% end %>
   </div>
   <% unless @post.reply == nil %>
     <h1 class="md:py-10 font-medium text-5xl md:text-6xl lg:text-8xl">
       あなたの書いたお返事</h1>
     <div class="posts-show-item">
-      <p>
-        <span><%= @post.reply.dear %></span>
-        <span><%= @post.reply.content %></span>
-        <span><%=  @post.reply.from %><br>
-        <%= @post.reply.created_at.strftime("%Y年%m月%d日 %H:%M") %></span>
+      <p class="flex justify-start mx-auto items-center">
+        <%= @post.reply.dear %>
+      </p>
+      <p class="flex justify-center mx-auto items-center">
+        <%= @post.reply.content %>
+      </p>
+      <p class="flex mx-auto justify-end items-center">
+        <%=  @post.reply.from %>
+      </p>
+      <p class="flex mx-auto justify-end items-center">
+        <%= @post.reply.created_at.strftime("%Y年%m月%d日 %H:%M") %>
       </p>
     </div>
   <% end %>

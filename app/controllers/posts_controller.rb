@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
   def archive
     @post = Post.find(params[:id])
-    if post.receiver_id = current_user.id
+    if @post.receiver_id = current_user.id
       @post.update(receiver_archives: true)
     else
       @post.update(sender_archives: true)

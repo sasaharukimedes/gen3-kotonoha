@@ -4,21 +4,33 @@
   <h1 class="md:py-10 font-medium text-5xl md:text-6xl lg:text-8xl">
       あなたのお手紙</h1>
   <div class="replies-show-item">
-    <p>
-      <span><%= @reply.post.dear %></span>
-      <span><%= @reply.post.content %></span>
-      <span><%=  @reply.post.from %><br>
-      <%= @reply.post.created_at.strftime("%Y年%m月%d日 %H:%M") %></span>
+    <p class="flex justify-start mx-auto items-center">
+      <%= @reply.post.dear %>
+    </p>
+    <p class="flex justify-center mx-auto items-center">
+      <%= @reply.post.content %>
+    </p>
+    <p class="flex mx-auto justify-end items-center">
+      <%=  @reply.post.from %>
+    </p>
+    <p class="flex mx-auto justify-end items-center">
+      <%= @reply.post.created_at.strftime("%Y年%m月%d日 %H:%M") %>
     </p>
   </div>
   <h1 class="md:py-10 font-medium text-5xl md:text-6xl lg:text-8xl">
       もらったお返事</h1>
   <div class="replies-show-item">
-    <p>
-      <span><%= @reply.dear %></span>
-      <span><%= @reply.content %></span>
-      <span><%=  @reply.from %><br>
-      <%= @reply.created_at.strftime("%Y年%m月%d日 %H:%M") %></span>
+    <p class="flex justify-start mx-auto items-center">
+      <%= @reply.dear %>
+    </p>
+    <p class="flex justify-center mx-auto items-center">
+      <%= @reply.content %>
+    </p>
+    <p class="flex mx-auto justify-end items-center">
+      <%=  @reply.from %>
+    </p>
+    <p class="flex mx-auto justify-end items-center">
+      <%= @reply.created_at.strftime("%Y年%m月%d日 %H:%M") %>
     </p>
   </div>
 </div>

@@ -16,8 +16,16 @@ Rails.application.routes.draw do
 
 
   resources :posts, shallow: true do
-    resources :replies
+    member do
+      put 'archive'
+    end
+    resources :replies do
+      member do
+        put 'archive'
+      end
+    end
   end
+
 
   resources :notifications, :only => [:index, :update]
   resources :contacts, only: [:new, :create]

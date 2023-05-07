@@ -12,11 +12,12 @@ class Reply < ApplicationRecord
   validates :sender_archives, inclusion: {in: [true, false]}
   validates :receiver_archives, inclusion: {in: [true, false]}
 
+
   #いったんこっちでやる
   def create_notification_by(current_user)
     notification=current_user.active_notifications.new(
       reply_id:self.id,
-      visited_id: post.user.id,
+      visited_id: post.sender.id,
       action:"reply"
     )
     notification.save!
