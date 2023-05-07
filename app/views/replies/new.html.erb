@@ -5,8 +5,9 @@
     <h1 class="md:py-10 font-medium flex justify-center text-4xl md:text-5xl">
       お返事を書く</h1>
     <%=  form_with scope: :reply, url: post_replies_path, model: @reply, local: true do |form| %>
-
-    <%= render 'layouts/error_messages', model: form.object %>
+    <div class ="flex justify-center items-center font-medium z-10">
+      <%= render 'layouts/error_messages', model: form.object %>
+    </div>
 
       <div class="font-medium bg-ocean1 form-body  bg-center bg-cover mt-10 text-3xl md:text-4xl lg:text-5xl w-screen flex justify-center items-center">
         <div class="w-full form-body">

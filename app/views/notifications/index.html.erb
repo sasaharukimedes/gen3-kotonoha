@@ -8,23 +8,29 @@
       <% @notifications.each do |notification| %>
         <% case notification.action %>
         <% when "post" %>
-          <div class="flex justify-between items-center mx-auto">
-            <%= link_to(notification.post.dear, "/posts/#{notification.post.id}") %>
-            <div class="flex justify-center items-center m-5 hover:bg-point text-header font-semibold hover:text-white py-2 px-8 rounded">
-              <% unless notification.post.receiver_archives %>
-                <%= button_to "削除ボタン", archive_post_path(notification.post), method: :put %>
-              <%end%>
+          <% unless notification.post.receiver_archives %>
+            <div class="flex justify-between items-center mx-auto">
+              <%= link_to(notification.post.dear, "/posts/#{notification.post.id}") %>
+              <div class="flex justify-center items-center m-5 hover:bg-point text-header font-semibold hover:text-white py-2 px-8 rounded">
+                <% unless notification.post.receiver_archives %>
+                  <%= button_to "削除ボタン", archive_post_path(notification.post), method: :put %>
+                <%end%>
+              </div>
             </div>
-          </div>
+          <% end %>
         <% when "reply" %>
-          <div class="flex justify-between items-center mx-auto">
-            <%= link_to(notification.reply.dear, "/replies/#{notification.reply.id}") %>
-            <div class="flex justify-center items-center m-5 hover:bg-point text-header font-semibold hover:text-white py-2 px-8 rounded">
-              <% unless notification.reply.receiver_archives %>
-                <%= button_to "削除ボタン", archive_reply_path(notification.reply), method: :put %>
-              <% end %>
+          <% unless notification.reply.receiver_archives %>
+            <div class="flex justify-between items-center mx-auto">
+              <%= link_to(notification.reply.dear, "/replies/#{notification.reply.id}") %>
+              <div class="flex justify-center items-center m-5 hover:bg-point text-header font-semibold hover:text-white py-2 px-8 rounded">
+                <% unless notification.reply.receiver_archives %>
+                  <%= button_to "削除ボタン", archive_reply_path(notification.reply), method: :put %>
+                <% end %>
+              </div>
             </div>
-          </div>
+          <% end %>
+        <% else %>
+          <%= link_to("開発者より", "announcement") %>
         <% end %>
       <% end %>
       <% unless @notifications.exists? %>

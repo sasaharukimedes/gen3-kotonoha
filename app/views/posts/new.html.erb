@@ -5,8 +5,10 @@
     <h1 class="md:py-10 font-medium flex justify-center text-4xl md:text-5xl">
       手紙を書く</h1>
     <%=  form_with scope: :post, url: posts_path, model: @post, local: true do |form| %>
+    <div class ="flex justify-center items-center font-medium z-10">
+      <%= render 'layouts/error_messages', model: form.object %>
+    </div>
 
-    <%= render 'layouts/error_messages', model: form.object %>
 
     <div class="font-medium bg-ocean1 form-body bg-center bg-cover mt-10 text-3xl md:text-4xl lg:text-5xl w-screen flex justify-center items-center">
       <div class=" w-full form-body text-header mx-auto">
@@ -29,10 +31,10 @@
           <%= form.label :差出人 %><br>
         </li>
         <li class="list-none flex justify-center items-center mx-auto w-full">
-          <%= form.text_field :from, placeholder: "悩める子羊より"%><br>
+          <%= form.text_field :from, placeholder: "#{current_user.name} より" %><br>
         </li>
         <li class="flex justify-center items-center m-5 hover:bg-point text-header font-semibold hover:text-white py-2 px-8 border rounded">
-          <%= form.submit value="投函する" %>
+          <%= form.submit value="投函する" , method: :post, data: { turbo: false }%>
         </li>
       </div>
     </div>
