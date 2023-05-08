@@ -81,6 +81,6 @@ test:
 #
 production:
   <<: *default
-  database: gen3_kotonoha_production
-  username: gen3_kotonoha
-  password: <%= ENV["GEN3_KOTONOHA_DATABASE_PASSWORD"] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
