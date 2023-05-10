@@ -20,8 +20,8 @@ class ProfilesController < ApplicationController
       flash[:notice] = "初めまして！コトノハへようこそ！"
       #のちのちposts_path
     else
-      redirect_to root_path
-      flash[:notice] = "コトノハへようこそ！"
+      render :edit
+      #redirect_to root_path
     end
   end
 

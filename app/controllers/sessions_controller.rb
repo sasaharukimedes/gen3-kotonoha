@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
       end
 
     else
-      redirect_to new_session_path
+      render new_session_path
     end
   end
 

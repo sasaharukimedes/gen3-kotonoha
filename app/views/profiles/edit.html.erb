@@ -19,7 +19,7 @@
     </div>
 
     <button class="mt-5 bg-transparent hover:bg-point text-body font-semibold hover:text-white py-2 px-4 border border-gray-400 hover:border-transparent rounded flex mx-auto justify-center">
-      <%= f.submit "新規アカウント登録" %>
+      <%= f.submit "新規アカウント登録",method: :post, data: { turbo: false } %>
     </button>
   <% end %>
 </div>
