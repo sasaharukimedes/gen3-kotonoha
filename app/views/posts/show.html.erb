@@ -3,7 +3,7 @@
 <div class="post posts-show">
 <h1 class="md:py-10 font-medium text-5xl md:text-6xl lg:text-8xl">
       もらったお手紙</h1>
-  <div class="posts-show-item">
+  <div class="posts-show-item mt-5">
     <p class="flex justify-start mx-auto items-center">
       <%= @post.dear %>
     </p>
@@ -25,7 +25,7 @@
   <% unless @post.reply == nil %>
     <h1 class="md:py-10 font-medium text-5xl md:text-6xl lg:text-8xl">
       あなたの書いたお返事</h1>
-    <div class="posts-show-item">
+    <div class="posts-show-item mt-5">
       <p class="flex justify-start mx-auto items-center">
         <%= @post.reply.dear %>
       </p>
