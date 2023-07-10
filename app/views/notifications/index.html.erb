@@ -3,8 +3,13 @@
 <div class="container flex justify-center mx-auto items-center w-full h-full">
   <div class="notification notifications-index">
 
-    <h1 class="md:py-10 font-medium flex justify-center text-4xl md:text-5xl">手紙を読む</h1>
-    <div class="notifications-index-item w-full mt-5">
+    <h1 class="md:py-10 font-medium flex justify-center items-center text-4xl md:text-5xl">手紙を読む</h1>
+    <h3 class="m-3 font-normal flex justify-center items-center text-lg md:text-xl hover:font-semibold">
+      <% if current_user.birthday == Date.today %>
+        <%= link_to("お誕生日のあなたへ", "birthday-message") %>
+      <% end %>
+    </h3>
+    <div class="notifications-index-item w-full m-5">
       <% @notifications.each do |notification| %>
         <% case notification.action %>
         <% when "post" %>
@@ -29,8 +34,6 @@
               </div>
             </div>
           <% end %>
-        <% else %>
-          <%= link_to("開発者より", "announcement") %>
         <% end %>
       <% end %>
       <% unless @notifications.exists? %>

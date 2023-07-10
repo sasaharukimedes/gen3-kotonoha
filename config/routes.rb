@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   root 'homes#top'
   get 'announcement', to: 'homes#announcement'
+  get 'birthday-message', to: 'homes#birthday-message'
 
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')

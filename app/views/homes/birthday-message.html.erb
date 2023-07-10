@@ -1,0 +1,23 @@
+<% provide(:title, "BirthdayMessage") %>
+
+<div id="MessageFromArchitect", class="container mt-8 px-8  md:px-14 lg:px-24 w-full">
+  <h1 class="md:py-10 font-medium text-5xl lg:text-8xl">お誕生日おめでとう！</h1>
+  <div class="post posts-show mt-5 flex justify-between mx-auto items-center">
+    <div class="posts-show-item">
+      <p class="font-bold"><%= "#{current_user.name}さんへ" %></p>
+        <p>
+        <span class="font-semibold"><%= "お誕生日おめでとうございます！" %><br>
+        <%= "いくつになっても誕生日は特別です。
+        今あなたはどんな気持ちで迎えていますか？幸せな気持ちでしょうか？
+        それとも、何か誕生日どころではないような気持ちのかもしれませんね。
+        でも、今日は特別な日です。周りの人に感謝をしてみたり、
+        自分自身に対しても優しい言葉をかけてあげて、お祝いしてあげてください。
+        改めまして、お誕生日おめでとうございます。
+        あなたにとっての新たな一年が、健やかで幸せなものでありますように。
+        もし、何かつらいことがあったら、いつでもコトノハで遊んでください！" %><br>
+        </span>
+        <p class="font-bold flex justify-end"><%= "開発者より" %></p>
+      </p>
+    </div>
+  </div>
+</div>

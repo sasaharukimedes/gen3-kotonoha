@@ -47,7 +47,13 @@
       <%= image_tag '2writeLetter.png', :size =>'320x480'%>
     </div>
     <div class="flex justify-center items-center m-5 hover:bg-point text-header font-semibold hover:text-white py-2 px-8 rounded">
-      <%= link_to "手紙を書く", new_post_path, data: {turbo: false} %>
+      <% if logged_in? %>
+        <%= link_to "手紙を書く", new_post_path, data: {turbo: false} %>
+      <% else %>
+        <div class="flex justify-center items-center m-5 hover:bg-point text-header font-semibold hover:text-white py-2 px-8 rounded">
+          <%= button_to "まずはGoogleで登録!", "/auth/google_oauth2", method: :post, data: { turbo: false } %>
+        </div>
+      <% end %>
     </div>
     <p class="mt-8 font-semibold text-2xl flex mx-auto">
     3, 手紙が書けたら返事が来るのを待ってみよう！<br/>(ちなみに、僕からの手紙があなたに来ているよ！<br/>読んでみてね！)
@@ -56,7 +62,13 @@
       <%= image_tag 'readLetter.png', :size =>'320x480'%>
     </div>
     <div class="flex justify-center items-center m-5 hover:bg-point text-header font-semibold hover:text-white py-2 px-8 rounded">
-      <%= link_to "手紙を読む", notifications_path %>
+      <% if logged_in? %>
+        <%= link_to "手紙を読む", notifications_path %>
+      <% else %>
+        <div class="flex justify-center items-center m-5 hover:bg-point text-header font-semibold hover:text-white py-2 px-8 rounded">
+          <%= button_to "まずはGoogleで登録!", "/auth/google_oauth2", method: :post, data: { turbo: false } %>
+        </div>
+      <% end %>
     </div>
   </section>
 </div>
