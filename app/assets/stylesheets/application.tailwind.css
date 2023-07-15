@@ -24,7 +24,8 @@
   min-height: 180px;
   border: 1px solid rgb(216, 218, 223);
   resize: none;
-  background-image: linear-gradient(
+  background-image:
+    linear-gradient(
       90deg,
       transparent 0%,
       transparent 50%,
@@ -32,7 +33,9 @@
       #fff 100%
     ),
     /* 点線1の色 */ linear-gradient(180deg, #ccc 1px, transparent 1px); /* 点線2の色と太さ */
-  background-size: 8px 100%, /* 点線1のサイズ */ 100% 1.5em; /* 点線2のサイズ */
+  background-size:
+    8px 100%,
+    /* 点線1のサイズ */ 100% 1.5em; /* 点線2のサイズ */
   line-height: 1.5em; /* 文字の高さ */
   padding-bottom: 1.5px; /* 最終行の下にも罫線を引く */
   background-origin: content-box;
@@ -91,7 +94,8 @@
   min-height: 180px;
   border: 1px solid rgb(216, 218, 223);
   resize: none;
-  background-image: linear-gradient(
+  background-image:
+    linear-gradient(
       90deg,
       transparent 0%,
       transparent 50%,
@@ -99,7 +103,9 @@
       #fff 100%
     ),
     /* 点線1の色 */ linear-gradient(180deg, #ccc 1px, transparent 1px); /* 点線2の色と太さ */
-  background-size: 8px 100%, /* 点線1のサイズ */ 100% 1.5em; /* 点線2のサイズ */
+  background-size:
+    8px 100%,
+    /* 点線1のサイズ */ 100% 1.5em; /* 点線2のサイズ */
   line-height: 1.5em; /* 文字の高さ */
   padding-bottom: 1.5px; /* 最終行の下にも罫線を引く */
   background-origin: content-box;
@@ -314,4 +320,8 @@
   color: #ddd;
   letter-spacing: 4px;
   font-size: 20px;
+}
+
+.top-about {
+  line-height: 1.8em;
 }
