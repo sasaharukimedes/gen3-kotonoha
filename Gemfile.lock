@@ -108,7 +108,7 @@ GEM
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
     io-console (0.6.0)
-    irb (1.7.3)
+    irb (1.7.4)
       reline (>= 0.3.6)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
@@ -127,7 +127,7 @@ GEM
     method_source (1.0.0)
     mini_mime (1.1.2)
     minitest (5.18.1)
-    msgpack (1.7.1)
+    msgpack (1.7.2)
     multi_xml (0.6.0)
     net-imap (0.3.6)
       date
@@ -272,7 +272,7 @@ DEPENDENCIES
   omniauth-rails_csrf_protection
   pg
   puma (~> 5.0)
-  rails (~> 7.0.4, >= 7.0.4.2)
+  rails
   rails-i18n
   selenium-webdriver
   sprockets-rails
@@ -284,7 +284,7 @@ DEPENDENCIES
   webdrivers
 
 RUBY VERSION
-   ruby 3.1.2p20
+   ruby 3.2.2p53
 
 BUNDLED WITH
-   2.4.2
+   2.4.10
