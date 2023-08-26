@@ -14,8 +14,8 @@ Please register as a user and have fun!
 Using Google Login
 
 # Dependency
--Ruby 3.2.2
--Rails 7.0.7.2
--TailwindCSS
--Postgresql
--Deploy by Render.com free plan
+- Ruby 3.2.2
+- Rails 7.0.7.2
+- TailwindCSS
+- Postgresql
+- Deploy by Render.com free plan
