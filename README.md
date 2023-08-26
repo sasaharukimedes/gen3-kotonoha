@@ -1,7 +1,7 @@
 # Name
 コトノハ
 
-#DEMO
+# DEMO
 [コトノハ](https://gen3-kotonoha.onrender.com)
 
 # Features
@@ -10,10 +10,10 @@ I developped this webapp with the concept of a "bully-free SNS!
 I thought about what I could do to make it so that people can freely and honestly whisper what's on their mind without worrying about anyone else's eyes, and I implemented it.
 Please register as a user and have fun!
 
-#Login
+# Login
 Using Google Login
 
-#Dependency
+# Dependency
 -Ruby 3.2.2
 -Rails 7.0.7.2
 -TailwindCSS
