@@ -1,21 +1,21 @@
 databases:
-  - name: Gen3-kotonoha_DB
+  - name: gen3-kotonohaDB
     databaseName: gen3_kotonoha_db
-    user: Gen3-kotonoha
+    user: harukimedes
     region: singapore
 
 services:
   - type: web
-    name: Gen3-kotonoha
+    name: gen3-kotonohaDB
     env: ruby
     region: singapore
     plan: free
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
-      - key: DATABASE_URL
+      - key: <%= ENV['DATABASE_URL'] %>
         fromDatabase:
           name: Renderで作成したDBアプリ名
           property: connectionString
-      - key: RAILS_MASTER_KEY
+      - key: <%= ENV['RAILS_MASTER_KEY'] %>
         sync: false
