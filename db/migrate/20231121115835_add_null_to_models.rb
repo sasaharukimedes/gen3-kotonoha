@@ -4,7 +4,7 @@ class AddNullToModels < ActiveRecord::Migration[7.1]
     change_column :posts, :content, :text, default: "", null: false
     change_column :posts, :from, :string, default: "", null: false
     change_column :posts, :sender_id, :integer, default: 0, null: false
-    change_column :posts, :received_id, :integer, default: 0, null: false
+    change_column :posts, :receiver_id, :integer, default: 0, null: false
 
     change_column :notifications, :visitor_id, :integer, default: 0
     change_column :notifications, :visited_id, :integer, default: 0
