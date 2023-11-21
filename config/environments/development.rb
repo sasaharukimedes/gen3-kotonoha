@@ -88,4 +88,6 @@ Rails.application.configure do
   :authentication => 'login'
 }
 
+  config.hosts << "https://kotonoha3.onrender.com/"
+
 end
