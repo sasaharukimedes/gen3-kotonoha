@@ -26,7 +26,6 @@ Rails.application.configure do
 
   #render追加分
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present? || ENV['RENDER'].present?
-  config.hosts << "https://kotonoha3.onrender.com/"
 
   # Compress CSS using a preprocessor.
   # config.assets.css_compressor = :sass
