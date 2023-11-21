@@ -22,7 +22,7 @@ module Gen3Kotonoha
     #追加分
     config.time_zone = 'Tokyo'
     config.active_record.default_timezone = :local
-    config.hosts << "https://gen3-kotonoha.onrender.com"
+    config.hosts << "https://kotonoha3.onrender.com/"
 
     #　以下の記述を追記する(設定必須)
     # デフォルトのlocaleを日本語(:ja)にする
