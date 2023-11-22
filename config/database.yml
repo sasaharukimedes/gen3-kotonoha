@@ -84,5 +84,3 @@ production:
   adapter: postgresql
   encoding: unicode
   pool: 5
-  # username: <%= ENV.fetch("DATABASE_USERNAME") %>
-  # password: <%= ENV.fetch("DB_PASSWORD") %>
