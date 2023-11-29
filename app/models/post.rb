@@ -26,4 +26,26 @@ class Post < ApplicationRecord
     notification.save!
   end
 
+  def archive_by(user)
+    if receiver_id == user.id
+      update(receiver_archives: true)
+    else
+      update(sender_archives: true)
+    end
+  end
+
+  def self.create_with_notification(post_params, current_user)
+    post = new(post_params)
+    post.sender_id = current_user.id
+    receiver = User.where.not(id: current_user.id).order(:received_at).first
+    post.receiver_id = receiver.id
+    if post.save
+      receiver.received_at = Time.current
+      post.create_notification_by(current_user)
+      receiver.save
+      post
+    else
+      nil
+    end
+  end
 end

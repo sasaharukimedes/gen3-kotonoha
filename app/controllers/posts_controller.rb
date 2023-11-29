@@ -3,11 +3,7 @@ class PostsController < ApplicationController
 
   def archive
     @post = Post.find(params[:id])
-    if @post.receiver_id = current_user.id
-      @post.update(receiver_archives: true)
-    else
-      @post.update(sender_archives: true)
-    end
+    @post.archive_by(current_user)
     redirect_to notifications_path
   end
 
@@ -20,19 +16,13 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
-    @post.sender_id = current_user.id
-    @receiver = User.where.not(id:current_user.id).order(:received_at).first
-    @post.receiver_id = @receiver.id
-    if @post.save
-      @receiver.received_at = Time.current
-      @post.create_notification_by(current_user)
-      @receiver.save
-      flash[:notice] = "手紙が作られました!"
-      NotificationMailer.notification_email(@receiver).deliver
-      redirect_to root_path
-    else
+    @post = Post.create_with_notification(post_params, current_user)
+    if @post.errors.any?
       render "new"
+    else
+      flash[:notice] = "手紙が作られました!"
+      NotificationMailer.notification_email(@post.receiver, @post).deliver_later
+      redirect_to root_path
     end
 
     rescue ActiveRecord::RecordInvalid => e

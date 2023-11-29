@@ -3,11 +3,7 @@ class RepliesController < ApplicationController
 
   def archive
     @reply = Reply.find(params[:id])
-    if @reply.post.sender_id = current_user.id
-      @reply.update(receiver_archives: true)
-    else
-      @reply.update(sender_archives: true)
-    end
+    @reply.archive_by(current_user)
     redirect_to notifications_path
   end
 
@@ -21,30 +17,17 @@ class RepliesController < ApplicationController
   end
 
   def create
-    @reply = Reply.new(reply_params)
     @post = Post.find(params[:post_id])
-    @reply.post_id = @post.id
-    #@receiver = User.where(id:@reply.post.sender_id)
-    #大久保さんに聞いたやつ
-    #@receiver = User.find_by!(id:@reply.post.sender_id)
-    @receiver = @reply.post.sender
-    if @reply.save
-      #通知メソッドの呼び出し
-      @reply.create_notification_by(current_user)
-      flash[:notice] = "返事が作られました!"
-      NotificationMailer.notification_email(@receiver).deliver
-      redirect_to root_path
-    else
+    @reply = Reply.create_with_notification(reply_params, @post, current_user)
+    if @reply.errors.any?
       render "new"
+    else
+      flash[:notice] = "返事が作られました!"
+      redirect_to root_path
     end
-
-    rescue ActiveRecord::RecordInvalid => e
-      pp e.record.errors
-
-
-
+  rescue ActiveRecord::RecordInvalid => e
+    pp e.record.errors
   end
-
 
       private
         def reply_params

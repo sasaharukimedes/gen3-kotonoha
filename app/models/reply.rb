@@ -22,4 +22,23 @@ class Reply < ApplicationRecord
     )
     notification.save!
   end
+
+  def archive_by(user)
+    if post.sender_id == user.id
+      update(receiver_archives: true)
+    else
+      update(sender_archives: true)
+    end
+  end
+
+  def self.create_with_notification(reply_params, post, current_user)
+    reply = new(reply_params)
+    reply.post_id = post.id
+    receiver = post.sender
+    if reply.save
+      reply.create_notification_by(current_user)
+      NotificationMailer.notification_email(receiver).deliver
+    end
+    reply
+  end
 end
