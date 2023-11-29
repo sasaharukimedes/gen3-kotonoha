@@ -3,7 +3,7 @@ class NotificationMailer < ApplicationMailer
   def notification_email(receiver)
     @receiver = receiver
     #ここはデプロイした先のURL
-    @url = "https://gen3-kotonoha.onrender.com/notifications"
+    @url = "https://kotonoha3.onrender.com/notifications"
     mail(to:"#{@receiver.email}", subject: 'お手紙が届いています！')
   end
 
