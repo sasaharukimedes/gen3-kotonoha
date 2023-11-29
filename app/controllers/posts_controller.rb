@@ -21,13 +21,10 @@ class PostsController < ApplicationController
       render "new"
     else
       flash[:notice] = "手紙が作られました!"
-      NotificationMailer.notification_email(@post.receiver, @post).deliver_later
       redirect_to root_path
     end
-
     rescue ActiveRecord::RecordInvalid => e
       pp e.record.errors
-
   end
 
 

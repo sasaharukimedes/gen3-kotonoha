@@ -42,6 +42,7 @@ class Post < ApplicationRecord
     if post.save
       receiver.received_at = Time.current
       post.create_notification_by(current_user)
+      NotificationMailer.notification_email(receiver).deliver
       receiver.save
       post
     else
