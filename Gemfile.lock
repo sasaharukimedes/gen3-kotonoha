@@ -123,7 +123,7 @@ GEM
       actionpack (>= 6.0.0)
       activesupport (>= 6.0.0)
       railties (>= 6.0.0)
-    io-console (0.7.0)
+    io-console (0.7.1)
     irb (1.10.1)
       rdoc
       reline (>= 0.3.8)
@@ -230,7 +230,7 @@ GEM
       thor (~> 1.0, >= 1.2.2)
       zeitwerk (~> 2.6)
     rake (13.1.0)
-    rdoc (6.6.1)
+    rdoc (6.6.2)
       psych (>= 4.0.0)
     regexp_parser (2.8.3)
     reline (0.4.1)
