@@ -88,4 +88,28 @@ RSpec.describe Post, type: :model do
     )
     expect(post1).to be_valid
   end
+  it "is invalid to making post by user1" do
+    user1 = User.new(
+      id: 1,
+      name: "Yuji",
+      email: "jujutsu@email.com",
+      birthday: "1995/02/03"
+    )
+    user1.save!
+    user2 = User.new(
+      id: 2,
+      name: "Deku",
+      email: "hiroaka@email.com",
+      birthday: "1998/12/13"
+    )
+    user2.save!
+    post1 = Post.new(
+    dear: "Hello",
+    content: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    from: "bff",
+    sender_id: user1.id,
+    receiver_id: user2.id
+    )
+    expect(post1).to be_invalid
+  end
 end
