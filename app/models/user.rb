@@ -22,6 +22,7 @@ class User < ApplicationRecord
     has_one :profile, dependent: :destroy
 
     validates :name, presence: true, if: -> { status == 'registered' }
+    validates :email, presence: true, uniqueness: true
     validates :birthday, presence: true, if: -> { status == 'registered' }
     validates :received_at, presence: true
 
