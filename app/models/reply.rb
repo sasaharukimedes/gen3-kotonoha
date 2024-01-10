@@ -35,10 +35,16 @@ class Reply < ApplicationRecord
     reply = new(reply_params)
     reply.post_id = post.id
     receiver = post.sender
-    if reply.save
+
+    ActiveRecord::Base.transaction do
+      reply.save!
       reply.create_notification_by(current_user)
       NotificationMailer.notification_email(receiver).deliver
     end
+
     reply
+  rescue ActiveRecord::RecordInvalid
+    nil
   end
+
 end

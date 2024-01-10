@@ -3,8 +3,10 @@ class User < ApplicationRecord
     def find_or_create_from_auth_hash(auth_hash , status)
       user_params = user_params_from_auth_hash(auth_hash)
       find_or_initialize_by(email: user_params[:email]) do |user|
-        user.status = 'needs_birthday'
-        user.update!(user_params)
+        user.transaction do
+          user.status = 'needs_birthday'
+          user.update!(user_params)
+        end
       end
     end
 

@@ -39,14 +39,18 @@ class Post < ApplicationRecord
     post.sender_id = current_user.id
     receiver = User.where.not(id: current_user.id).order(:received_at).first
     post.receiver_id = receiver.id
-    if post.save
+
+    ActiveRecord::Base.transaction do
+      post.save!
       receiver.received_at = Time.current
       post.create_notification_by(current_user)
       NotificationMailer.notification_email(receiver).deliver
-      receiver.save
-      post
-    else
-      nil
+      receiver.save!
     end
+
+    post
+  rescue ActiveRecord::RecordInvalid
+    nil
   end
+
 end
