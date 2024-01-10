@@ -14,7 +14,7 @@
       <%=  @post.from %>
     </p>
     <p class="flex mx-auto justify-end items-center">
-      <%= @post.created_at.strftime("%Y年%m月%d日 %H:%M") %>
+      <%= l @post.created_at%>
     </p>
       <% if @post.reply == nil %>
         <div class="flex justify-center hover:bg-point text-header font-bold hover:text-white py-3 px-8 rounded-lg transition-all duration-300 mx-auto">
@@ -36,7 +36,7 @@
         <%=  @post.reply.from %>
       </p>
       <p class="flex mx-auto justify-end items-center">
-        <%= @post.reply.created_at.strftime("%Y年%m月%d日 %H:%M") %>
+        <%= l @post.reply.created_at%>
       </p>
     </div>
   <% end %>

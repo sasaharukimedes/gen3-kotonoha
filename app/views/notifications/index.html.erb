@@ -5,7 +5,7 @@
 
     <h1 class="md:py-10 font-medium flex justify-center items-center text-4xl md:text-5xl">手紙を読む</h1>
     <h3 class="m-3 font-normal flex justify-center items-center text-lg md:text-xl hover:font-semibold">
-      <% if current_user.birthday == Date.today %>
+      <% if current_user.birthday == Date.current %>
         <%= link_to("お誕生日のあなたへ", "birthday-message") %>
       <% end %>
     </h3>

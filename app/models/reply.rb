@@ -25,9 +25,9 @@ class Reply < ApplicationRecord
 
   def archive_by(user)
     if post.sender_id == user.id
-      update(receiver_archives: true)
+      update!(receiver_archives: true)
     else
-      update(sender_archives: true)
+      update!(sender_archives: true)
     end
   end
 

@@ -2,9 +2,14 @@ class RepliesController < ApplicationController
   before_action :check_logged_in
 
   def archive
-    @reply = Reply.find(params[:id])
-    @reply.archive_by(current_user)
-    redirect_to notifications_path
+    begin
+      @reply = Reply.find(params[:id])
+      @reply.archive_by(current_user)
+      redirect_to notifications_path
+    rescue => e
+      flash[:error] = "エラーが発生しました: #{e.message}"
+      redirect_to root_path
+    end
   end
 
   def show

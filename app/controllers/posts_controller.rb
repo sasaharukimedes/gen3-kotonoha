@@ -2,9 +2,14 @@ class PostsController < ApplicationController
   before_action :check_logged_in
 
   def archive
-    @post = Post.find(params[:id])
-    @post.archive_by(current_user)
-    redirect_to notifications_path
+    begin
+      @post = Post.find(params[:id])
+      @post.archive_by(current_user)
+      redirect_to notifications_path
+    rescue => e
+      flash[:error] = "エラーが発生しました: #{e.message}"
+      redirect_to root_path
+    end
   end
 
   def show
