@@ -17,7 +17,7 @@ class User < ApplicationRecord
     end
   end
 
-    attribute :received_at, :datetime, default: -> { Time.now }
+    attribute :received_at, :datetime, default: -> { Time.current }
     has_many :posts, dependent: :destroy
     has_one :profile, dependent: :destroy
 

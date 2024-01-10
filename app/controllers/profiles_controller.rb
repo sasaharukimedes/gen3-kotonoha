@@ -15,7 +15,7 @@ class ProfilesController < ApplicationController
 
   def update
     @profile = current_user
-    if @profile.update(update_params.merge(status: 'registered',received_at: Time.now))
+    if @profile.update(update_params.merge(status: 'registered',received_at: Time.current))
       redirect_to root_url
       flash[:notice] = "初めまして！コトノハへようこそ！"
       #のちのちposts_path
