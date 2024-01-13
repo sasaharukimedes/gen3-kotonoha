@@ -49,8 +49,9 @@ class Post < ApplicationRecord
     end
 
     post
-  rescue ActiveRecord::RecordInvalid
-    nil
-  end
+    rescue ActiveRecord::RecordInvalid => e
+      post.errors.add(:base, e.message)
+      post
+    end
 
 end

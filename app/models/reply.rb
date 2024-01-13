@@ -43,8 +43,9 @@ class Reply < ApplicationRecord
     end
 
     reply
-  rescue ActiveRecord::RecordInvalid
-    nil
+  rescue ActiveRecord::RecordInvalid => e
+    reply.errors.add(:base, e.message)
+    reply
   end
 
 end

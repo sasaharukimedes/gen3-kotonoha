@@ -19,15 +19,6 @@
         </li>
       <% else %>
         <li class="list-none hover:text-point transition-all duration-300 px-3 py-3">
-          <a href="#about">どんなアプリ？</a>
-        </li>
-        <li class="list-none hover:text-point transition-all duration-300 px-3 py-3">
-          <a  href="#play">遊び方</a>
-        </li>
-        <li class="list-none hover:text-point transition-all duration-300 px-3 py-3">
-          <%= link_to "お問い合わせ", new_contact_path %>
-        </li>
-        <li class="list-none hover:text-point transition-all duration-300 px-3 py-3">
           <%= button_to "Googleでログイン", "/auth/google_oauth2", method: :post, data: { turbo: false } %>
         </li>
       <% end %>

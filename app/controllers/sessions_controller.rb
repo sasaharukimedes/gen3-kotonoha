@@ -1,8 +1,5 @@
 class SessionsController < ApplicationController
-  #skip_before_action :check_logged_in, except: :destroy
-
-  def new
-  end
+  skip_before_action :check_logged_in, except: :destroy
 
   def create
     if (user = User.find_or_create_from_auth_hash(auth_hash, status))
@@ -14,7 +11,6 @@ class SessionsController < ApplicationController
         redirect_to root_path
         flash[:notice] = "コトノハへようこそ！"
       end
-
     else
       render new_session_path
     end
