@@ -4,12 +4,10 @@
   <div class="notification notifications-index">
 
     <h1 class="md:py-10 font-medium flex justify-center items-center text-4xl md:text-5xl">手紙を読む</h1>
-    <div class="notifications-index-item w-full m-5">
+    <div class="notifications-index-item w-full m-5 p-5 flex flex-col">
       <% if current_user.birthday == Date.current %>
         <%= link_to("お誕生日のあなたへ", "birthday-message") %>
       <% end %>
-    </div>
-    <div class="notifications-index-item w-full m-5">
       <% @notifications.each do |notification| %>
         <% case notification.action %>
         <% when "post" %>
