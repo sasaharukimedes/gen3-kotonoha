@@ -102,15 +102,15 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.default :charset => "utf-8"
   # SendGrid の場合
-  config.action_mailer.smtp_settings = {
-    :address => 'smtp.sendgrid.net',
-    :port => 587,
-    :domain => 'render.com',
-    :user_name => 'gen3-kotonoha',
-    :password => ENV['SENDGRID_API_KEY'],
-    :authentication => :plain,
-    :enable_starttls_auto => true
-  }
+  # config.action_mailer.smtp_settings = {
+  #   :address => 'smtp.sendgrid.net',
+  #   :port => 587,
+  #   :domain => 'render.com',
+  #   :user_name => 'gen3-kotonoha',
+  #   :password => ENV['SENDGRID_API_KEY'],
+  #   :authentication => :plain,
+  #   :enable_starttls_auto => true
+  # }
 
   config.action_mailer.smtp_settings = {
     address:"smtp.gmail.com",

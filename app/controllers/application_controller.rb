@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  include SessionsHelper
+  include SessionHelper
   before_action :check_logged_in
 
   def check_logged_in

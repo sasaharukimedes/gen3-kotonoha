@@ -1,8 +1,8 @@
 class SessionsController < ApplicationController
-  skip_before_action :check_logged_in, except: :destroy
+  skip_before_action :check_logged_in, only: :create
 
   def create
-    if (user = User.find_or_create_from_auth_hash(auth_hash, status))
+    if user = User.find_or_create_from_auth_hash(auth_hash, status)
       log_in user
       #ユーザーの名前と誕生日がない場合のみeditに遷移
       if user_needs_profile?(user)
