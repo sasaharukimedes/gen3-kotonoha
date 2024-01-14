@@ -55,9 +55,7 @@
       <% if logged_in? %>
         <%= link_to "手紙を書く", new_post_path, data: {turbo: false} %>
       <% else %>
-        <div class="flex justify-center items-center m-5 hover:bg-point text-header font-semibold hover:text-white py-2 px-8 rounded">
-          <%= button_to "まずはGoogleで登録!", "/auth/google_oauth2", method: :post, data: { turbo: false } %>
-        </div>
+        <%= button_to "まずはGoogleで登録!", "/auth/google_oauth2", method: :post, data: { turbo: false } %>
       <% end %>
     </div>
     <p class="mt-8 font-semibold text-2xl flex mx-auto">
@@ -70,9 +68,7 @@
       <% if logged_in? %>
         <%= link_to "手紙を読む", notifications_path %>
       <% else %>
-        <div class="flex justify-center items-center m-5 hover:bg-point text-header font-semibold hover:text-white py-2 px-8 rounded">
-          <%= button_to "まずはGoogleで登録!", "/auth/google_oauth2", method: :post, data: { turbo: false } %>
-        </div>
+        <%= button_to "まずはGoogleで登録!", "/auth/google_oauth2", method: :post, data: { turbo: false } %>
       <% end %>
     </div>
   </section>
