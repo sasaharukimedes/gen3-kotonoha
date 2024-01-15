@@ -27,6 +27,6 @@ class ProfilesController < ApplicationController
 
       private
       def update_params
-        params.require(:user).permit(:name, :birthday, :received_at ,:password, :password_confirmation)
+        params.require(:user).permit(:name, :birthday, :received_at)
       end
 end
