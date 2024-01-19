@@ -3,15 +3,6 @@
 class PostsController < ApplicationController
   before_action :check_logged_in
 
-  def archive
-    @post = Post.find(params[:id])
-    @post.archive_by(current_user)
-    redirect_to notifications_path
-  rescue StandardError => e
-    flash[:error] = "エラーが発生しました: #{e.message}"
-    redirect_to root_path
-  end
-
   def show
     @post = Post.find(params[:id])
   end
@@ -30,6 +21,15 @@ class PostsController < ApplicationController
     end
   rescue ActiveRecord::RecordInvalid => e
     pp e.record.errors
+  end
+
+  def archive
+    @post = Post.find(params[:id])
+    @post.archive_by(current_user)
+    redirect_to notifications_path
+  rescue StandardError => e
+    flash[:error] = "エラーが発生しました: #{e.message}"
+    redirect_to root_path
   end
 
   private
