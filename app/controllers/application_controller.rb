@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   include SessionHelper
   before_action :check_logged_in
@@ -11,12 +13,12 @@ class ApplicationController < ActionController::Base
   after_action :flash_turbo_frame
   def flash_turbo_frame
     return if response.redirect?
+
     message = {}
     if turbo_frame_request?
-      message = flash.inject({}) do |hash, (type, _message)|
+      message = flash.transform_values do |_message|
         # XSS対策&日本語のエスケープ
-        hash[type] = CGI.escape("#{ERB::Util.html_escape(_message)}")
-        hash
+        CGI.escape(ERB::Util.html_escape(_message).to_s)
       end.to_json
       flash.discard
     end

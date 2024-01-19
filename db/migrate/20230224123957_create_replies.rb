@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateReplies < ActiveRecord::Migration[7.0]
   def change
     create_table :replies do |t|
@@ -5,8 +7,8 @@ class CreateReplies < ActiveRecord::Migration[7.0]
       t.text :content
       t.string :from
       t.integer :post_id
-      t.boolean :sender_archives, null:false, default:false
-      t.boolean :receiver_archives, null:false, default:false
+      t.boolean :sender_archives, null: false, default: false
+      t.boolean :receiver_archives, null: false, default: false
 
       t.timestamps
     end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class NotificationsController < ApplicationController
   before_action :check_logged_in
 
@@ -7,9 +9,8 @@ class NotificationsController < ApplicationController
 
   def update
     @notification = Notification.find(params[:id])
-    if notification.update(checked: true)
-      redirect_to notifications_path
-    end
-  end
+    return unless notification.update(checked: true)
 
+    redirect_to notifications_path
+  end
 end

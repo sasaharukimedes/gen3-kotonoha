@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -16,7 +18,6 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create edit destroy]
   resource :profile
 
-
   resources :posts, shallow: true do
     member do
       put 'archive'
@@ -28,8 +29,6 @@ Rails.application.routes.draw do
     end
   end
 
-
-  resources :notifications, :only => [:index, :update]
-  resources :contacts, only: [:new, :create]
-
+  resources :notifications, only: %i[index update]
+  resources :contacts, only: %i[new create]
 end

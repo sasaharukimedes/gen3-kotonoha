@@ -1,15 +1,17 @@
+# frozen_string_literal: true
+
 class SessionsController < ApplicationController
   skip_before_action :check_logged_in, only: :create
 
   def create
-    if user = User.find_or_create_from_auth_hash(auth_hash, status)
+    if (user = User.find_or_create_from_auth_hash(auth_hash, status))
       log_in user
-      #ユーザーの名前と誕生日がない場合のみeditに遷移
+      # ユーザーの名前と誕生日がない場合のみeditに遷移
       if user_needs_profile?(user)
         redirect_to edit_profile_path
       else
         redirect_to root_path
-        flash[:notice] = "コトノハへようこそ！"
+        flash[:notice] = 'コトノハへようこそ！'
       end
     else
       render new_session_path
@@ -21,14 +23,13 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
-        private
+  private
 
-        def auth_hash
-          request.env['omniauth.auth']
-        end
+  def auth_hash
+    request.env['omniauth.auth']
+  end
 
-        def user_needs_profile?(user)
-          !user.name.present? || !user.birthday.present?
-        end
-
+  def user_needs_profile?(user)
+    !user.name.present? || !user.birthday.present?
+  end
 end

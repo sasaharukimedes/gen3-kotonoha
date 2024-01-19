@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Notification < ApplicationRecord
   belongs_to :post, optional: true
   belongs_to :reply, optional: true
@@ -9,5 +11,4 @@ class Notification < ApplicationRecord
   validates :visited_id, presence: true
   validates :action, presence: true
   validates :checked, inclusion: { in: [true, false] }
-
 end
