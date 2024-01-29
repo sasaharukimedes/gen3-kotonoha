@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create edit destroy]
   resource :profile
 
-  resources :posts, shallow: true do
+  resources :posts do
     member do
       put 'archive'
     end
