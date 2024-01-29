@@ -3,10 +3,6 @@
 class RepliesController < ApplicationController
   before_action :check_logged_in
 
-  def show
-    @reply = Reply.find(params[:id])
-  end
-
   def new
     @reply = Reply.new
     @post = Post.find(params[:post_id])
@@ -22,7 +18,15 @@ class RepliesController < ApplicationController
       redirect_to root_path
     end
   rescue ActiveRecord::RecordInvalid => e
-    pp e.record.errors
+    flash[:error] = e.record.errors.full_messages.first
+    redirect_to new_post_reply_path(@post)
+  end
+
+  def show
+    @reply = current_user.replies.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    flash[:error] = '表示しようとしているメッセージはあなたのものではありません。'
+    redirect_to root_path
   end
 
   def archive

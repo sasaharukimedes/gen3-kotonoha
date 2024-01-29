@@ -3,10 +3,6 @@
 class PostsController < ApplicationController
   before_action :check_logged_in
 
-  def show
-    @post = Post.find(params[:id])
-  end
-
   def new
     @post = Post.new
   end
@@ -20,7 +16,15 @@ class PostsController < ApplicationController
       redirect_to root_path
     end
   rescue ActiveRecord::RecordInvalid => e
-    pp e.record.errors
+    flash[:error] = e.record.errors.full_messages.first
+    redirect_to new_post_path
+  end
+
+  def show
+    @post = current_user.posts.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    flash[:error] = '表示しようとしているメッセージはあなたのものではありません。'
+    redirect_to root_path
   end
 
   def archive
