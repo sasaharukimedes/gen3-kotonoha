@@ -22,10 +22,10 @@ Rails.application.routes.draw do
     member do
       put 'archive'
     end
-    resources :replies do
-      member do
-        put 'archive'
-      end
+  end
+  resources :replies do
+    member do
+      put 'archive'
     end
   end
 

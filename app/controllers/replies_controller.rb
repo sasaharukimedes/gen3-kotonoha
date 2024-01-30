@@ -23,8 +23,9 @@ class RepliesController < ApplicationController
   end
 
   def show
-    @reply = current_user.replies.find(params[:id])
-  rescue ActiveRecord::RecordNotFound
+    @reply = Reply.joins(:post).where(id: params[:id], posts: { sender_id: current_user.id }).first
+    return if @reply
+
     flash[:error] = '表示しようとしているメッセージはあなたのものではありません。'
     redirect_to root_path
   end

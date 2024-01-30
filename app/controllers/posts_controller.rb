@@ -21,8 +21,9 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = current_user.posts.find(params[:id])
-  rescue ActiveRecord::RecordNotFound
+    @post = Post.where(id: params[:id], receiver_id: current_user.id).first
+    return if @post
+
     flash[:error] = '表示しようとしているメッセージはあなたのものではありません。'
     redirect_to root_path
   end
