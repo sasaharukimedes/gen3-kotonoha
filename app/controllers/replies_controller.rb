@@ -24,12 +24,11 @@ class RepliesController < ApplicationController
 
   def show
     @reply = Reply.find(params[:id])
-    unless @reply.post.sender_id == current_user.id
-      flash[:error] = '表示しようとしているメッセージはあなたのものではありません。'
-      redirect_to root_path
-    end
-  end
+    return if @reply.post.sender_id == current_user.id
 
+    flash[:error] = '表示しようとしているメッセージはあなたのものではありません。'
+    redirect_to root_path
+  end
 
   def archive
     @reply = Reply.find(params[:id])
