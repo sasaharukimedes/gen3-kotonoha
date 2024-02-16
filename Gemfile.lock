@@ -101,9 +101,9 @@ GEM
       irb (~> 1.10)
       reline (>= 0.3.8)
     diff-lcs (1.5.1)
-    dotenv (3.0.1)
-    dotenv-rails (3.0.1)
-      dotenv (= 3.0.1)
+    dotenv (3.0.2)
+    dotenv-rails (3.0.2)
+      dotenv (= 3.0.2)
       railties (>= 6.1)
     drb (2.2.0)
       ruby2_keywords
@@ -194,7 +194,7 @@ GEM
     parser (3.3.0.5)
       ast (~> 2.4.1)
       racc
-    pg (1.5.4)
+    pg (1.5.5)
     psych (5.1.2)
       stringio
     public_suffix (5.0.4)
